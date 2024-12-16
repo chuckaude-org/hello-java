@@ -26,9 +26,7 @@ jobs:
         polaris_access_token: ${{ secrets.POLARIS_ACCESSTOKEN }}
         polaris_assessment_types: 'SAST,SCA'
         polaris_application_name: chuckaude-${{ github.event.repository.name }}
-        coverity_build_command: mvn -B install
-        coverity_clean_command: mvn -B clean
-        coverity_args: -o analyze.aggressiveness-level=high
+        polaris_waitForScan: false
 #    - name: Save Logs
 #      if: always()
 #      uses: actions/upload-artifact@v4
