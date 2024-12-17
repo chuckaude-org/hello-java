@@ -25,10 +25,7 @@ jobs:
         coverity_url: ${{ vars.COVERITY_URL }}
         coverity_user: ${{ secrets.COV_USER }}
         coverity_passphrase: ${{ secrets.COVERITY_PASSPHRASE }}
-        coverity_build_command: mvn -B install
-        coverity_clean_command: mvn -B clean
-        coverity_args: -o analyze.aggressiveness-level=high
-        coverity_policy_view: ${{ github.event_name != 'pull_request' && 'Outstanding Issues' || '' }}
+        coverity_waitForScan: false
 #    - name: Save Logs
 #      if: always()
 #      uses: actions/upload-artifact@v4
