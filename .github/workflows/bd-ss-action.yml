@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 jobs:
   blackduck:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
     - name: Checkout Source
       uses: actions/checkout@v4
@@ -35,4 +35,3 @@ jobs:
         blackducksca_upload_sarif_report: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
         include_diagnostics: true
-        BRIDGE_DETECT_ARGS: --detect.accuracy.required=NONE --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING
