@@ -35,4 +35,4 @@ jobs:
         blackducksca_upload_sarif_report: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
         include_diagnostics: true
-        detect_args: --detect.accuracy.required=NONE
+        detect_args: --detect.accuracy.required=NONE --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING
