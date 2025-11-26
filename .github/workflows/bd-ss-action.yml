@@ -28,10 +28,8 @@ jobs:
       with:
         blackducksca_url: ${{ vars.BLACKDUCK_URL }}
         blackducksca_token: ${{ secrets.BLACKDUCK_API_TOKEN }}
-        blackducksca_scan_failure_severities: BLOCKER
-        blackducksca_fixpr_enabled: true
-        blackducksca_prComment_enabled: true
-        blackducksca_reports_sarif_create: true
-        blackducksca_upload_sarif_report: true
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        blackducksca_scan_full: true
+        blackducksca_scan_failure_severities: BLOCKER,CRITICAL,MAJOR
+        detect_search_depth: 4
+        mark_build_status: failure
         include_diagnostics: true
