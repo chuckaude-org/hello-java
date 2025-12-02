@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 jobs:
   polaris:
-    runs-on: ubuntu-latest
+    runs-on: linux64-vpn
     steps:
     - name: Checkout Source
       uses: actions/checkout@v4
