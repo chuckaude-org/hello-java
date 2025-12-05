@@ -23,6 +23,7 @@ jobs:
     # https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
     - name: Restore Coverity iDir
       uses: actions/cache/restore@v4
+      id: cache-coverity-idir
       with:
         path: .bridge/**/idir
         key: ${{ github.event.repository.name }}-${{ github.ref_name }}-${{ runner.os }}
@@ -44,4 +45,4 @@ jobs:
       uses: actions/cache/save@v4
       with:
         path: .bridge/**/idir
-        key: ${{ github.event.repository.name }}-${{ github.ref_name }}-${{ runner.os }}
+        key: ${{ steps.cache-coverity-idir.outputs.cache-primary-key }}
