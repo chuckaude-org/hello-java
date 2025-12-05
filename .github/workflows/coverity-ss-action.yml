@@ -19,6 +19,14 @@ jobs:
         java-version: 21
         distribution: temurin
         cache: maven
+    # designate the Coverity idir as something to cache, for more details see:
+    # https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
+    - name: Cache Coverity iDir
+      uses: actions/cache@v4
+      id: cache-coverity
+      with:
+        path: .bridge/**/idir
+        key: ${{ github.event.repository.name }}-${{ github.ref_name }}-${{ runner.os }}
     - name: Coverity Scan
       uses: blackduck-inc/black-duck-security-scan@v2
       with:
