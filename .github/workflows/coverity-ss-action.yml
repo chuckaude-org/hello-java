@@ -26,14 +26,14 @@ jobs:
       id: cache-coverity-idir
       with:
         path: .bridge/**/idir
-        key: ${{ github.event.repository.name }}-${{ github.ref_name }}-${{ runner.os }}
+        key: ${{ github.event.repository.name }}-${{ github.ref_name }}-${{ runner.os }}-${{ runner.arch }}
     - name: Coverity Scan
       uses: blackduck-inc/black-duck-security-scan@v2
       with:
         coverity_url: ${{ vars.COVERITY_URL }}
         coverity_user: ${{ secrets.COV_USER }}
         coverity_passphrase: ${{ secrets.COVERITY_PASSPHRASE }}
-        coverity_policy_view: ${{ github.event_name != 'pull_request' && 'Outstanding Issues' || '' }}
+        #coverity_policy_view: ${{ github.event_name != 'pull_request' && 'Outstanding Issues' || '' }}
         coverity_prComment_enabled: true
         coverity_build_command: mvn -B -DskipTests package
         coverity_clean_command: mvn -B clean
