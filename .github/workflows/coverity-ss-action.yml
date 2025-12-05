@@ -21,9 +21,8 @@ jobs:
         cache: maven
     # designate the Coverity idir as something to cache, for more details see:
     # https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows
-    - name: Cache Coverity iDir
-      uses: actions/cache@v4
-      id: cache-coverity
+    - name: Restore Coverity iDir
+      uses: actions/cache/restore@v4
       with:
         path: .bridge/**/idir
         key: ${{ github.event.repository.name }}-${{ github.ref_name }}-${{ runner.os }}
@@ -40,3 +39,9 @@ jobs:
         # coverity_local: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
         include_diagnostics: false
+    - name: Save Coverity iDir
+      if: always()
+      uses: actions/cache/save@v4
+      with:
+        path: .bridge/**/idir
+        key: ${{ github.event.repository.name }}-${{ github.ref_name }}-${{ runner.os }}
