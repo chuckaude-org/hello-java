@@ -27,7 +27,8 @@ jobs:
       with:
         path: .bridge/**/idir
         key: coverity-idir-${{ runner.os }}-${{ runner.arch }}-${{ github.sha }}
-        restore-keys: coverity-idir-${{ runner.os }}-${{ runner.arch }}
+        restore-keys: |
+          coverity-idir-${{ runner.os }}-${{ runner.arch }}-
     - name: Coverity Scan
       uses: blackduck-inc/black-duck-security-scan@v2
       with:
