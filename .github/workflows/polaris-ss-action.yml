@@ -25,6 +25,7 @@ jobs:
         polaris_server_url: ${{ vars.POLARIS_SERVERURL }}
         polaris_access_token: ${{ secrets.POLARIS_ACCESSTOKEN }}
         polaris_assessment_types: SAST,SCA
+        polaris_test_sast_type: ${{ github.event_name != 'pull_request' && 'SAST-FULL' || 'SAST-RAPID' }}
         polaris_application_name: chuckaude-${{ github.event.repository.name }}
         polaris_prComment_enabled: true
         polaris_reports_sarif_create: true
