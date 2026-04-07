@@ -29,6 +29,7 @@ jobs:
         coverity_prComment_enabled: true
         coverity_build_command: mvn -B -DskipTests package
         coverity_clean_command: mvn -B clean
+        coverity_args: -o analyze.checkers.checker-config.OVERRUN.report_unprotected_indexing=true
         # coverity_local: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
         include_diagnostics: false
