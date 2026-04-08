@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 jobs:
   coverity:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
     - name: Checkout Source
       uses: actions/checkout@v6
@@ -32,7 +32,8 @@ jobs:
         coverity_build_command: mvn -B -DskipTests package
         coverity_clean_command: mvn -B clean
         coverity_args: -o analyze.checkers.checker-config.OVERRUN.options.report_unprotected_indexing=true
-        # coverity_local: true
+        coverity_local: true
+        coverity_install_directory: /opt/coverity/analysis/2025.12.1
         github_token: ${{ secrets.GITHUB_TOKEN }}
         include_diagnostics: true
         project_directory: subdir
