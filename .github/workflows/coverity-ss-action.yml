@@ -31,8 +31,8 @@ jobs:
         coverity_prComment_enabled: true
         #coverity_build_command: mvn -B -DskipTests package
         #coverity_clean_command: mvn -B clean
-        coverity_build_command: cd subdir && mvn -B -DskipTests package
-        coverity_clean_command: cd subdir && mvn -B clean
+        coverity_build_command: sh -c "cd subdir && mvn -B -DskipTests package"
+        coverity_clean_command: sh -c "cd subdir && mvn -B clean"
         coverity_args: -o analyze.checkers.checker-config.OVERRUN.options.report_unprotected_indexing=true
         # coverity_local: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
