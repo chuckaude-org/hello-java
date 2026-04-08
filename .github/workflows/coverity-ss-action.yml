@@ -34,5 +34,5 @@ jobs:
         coverity_args: -o analyze.checkers.checker-config.OVERRUN.options.report_unprotected_indexing=true
         # coverity_local: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        include_diagnostics: false
+        include_diagnostics: true
         project_directory: subdir
