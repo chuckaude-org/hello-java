@@ -35,3 +35,4 @@ jobs:
         # coverity_local: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
         include_diagnostics: false
+        project_directory: subdir
