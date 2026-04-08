@@ -29,10 +29,12 @@ jobs:
         coverity_passphrase: ${{ secrets.COVERITY_PASSPHRASE }}
         coverity_policy_view: ${{ github.event_name != 'pull_request' && 'Outstanding Issues' || '' }}
         coverity_prComment_enabled: true
-        coverity_build_command: mvn -B -DskipTests package
-        coverity_clean_command: mvn -B clean
+        #coverity_build_command: mvn -B -DskipTests package
+        #coverity_clean_command: mvn -B clean
+        coverity_build_command: cd subdir && mvn -B -DskipTests package
+        coverity_clean_command: cd subdir && mvn -B clean
         coverity_args: -o analyze.checkers.checker-config.OVERRUN.options.report_unprotected_indexing=true
         # coverity_local: true
         github_token: ${{ secrets.GITHUB_TOKEN }}
         include_diagnostics: true
-        project_directory: subdir
+        #project_directory: subdir
