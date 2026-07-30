@@ -18,7 +18,7 @@ jobs:
         java-version: 25
         distribution: temurin
         cache: maven
-    - uses: synopsys-sig-community/synopsys-github-templates/coverity@ab01e2f9b43402742580783cbb59c1b8a888148d # v0.0.2
+    - uses: synopsys-sig-community/synopsys-github-templates/coverity@<commit-hash>
       with:
         # Required to identify new defects and commit results
         coverity-url: ${{ vars.COVERITY_URL }}
