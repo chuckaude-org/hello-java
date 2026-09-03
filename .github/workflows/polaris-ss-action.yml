@@ -7,6 +7,11 @@ on:
   pull_request:
     branches: [ main, master, develop, stage, release ]
   workflow_dispatch:
+# GitHub token permissions for post-scan actions. Required for built-in GITHUB_TOKEN; not needed if using a PAT with equivalent scopes.
+permissions:
+  contents: write               # Required for Fix PRs
+  pull-requests: write          # Required for PR comments
+  security-events: write        # Required for SARIF upload to GHAS
 jobs:
   polaris:
     runs-on: ubuntu-latest
